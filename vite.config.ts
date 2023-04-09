@@ -6,7 +6,7 @@ import { NgmiPolyfill } from "vite-plugin-ngmi-polyfill";
 
 const config = {
 
-  base: "/my-app/", // https://hrishikeshpathak.com/blog/svelte-gh-pages/
+  base: "/reveal/", // https://hrishikeshpathak.com/blog/svelte-gh-pages/
   plugins: [svelte(), NgmiPolyfill()],
 
   optimizeDeps: {
