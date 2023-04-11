@@ -165,18 +165,18 @@
 	}
 </script>
 
-<button on:click={connected ? disconnect : connect}>
+<button class="font_8" on:click={connected ? disconnect : connect}>
 	{connected ? 'Disconnect' : 'Connect Wallet'}
 </button>
 
-<button disabled={!connected} on:click={check}> Check If Your Visiblr Portrait is Ready </button>
+<button class="font_8" disabled={!connected} on:click={check}> Check If Your Visiblr Portrait is Ready </button>
 
-<button disabled={!(detected && connected)} on:click={reveal}> Reveal Your Visiblr Portrait </button>
+<button class="font_8" disabled={!(detected && connected)} on:click={reveal}> Reveal Your Visiblr Portrait </button>
 
 <p>
 	{connected
 		? revealed
-			? "Congratulations! Don't forget to disconnect your wallet before you leave"
+			? "Congratulations! Please don't forget to disconnect your wallet before you leave"
 			: detected
 			? "Your Visiblr portrait is ready! Let's reveal it now. "
 			: "Connected! Now let's check if your Visiblr portrait is ready."
@@ -198,19 +198,19 @@
 </div>
 <div id="titleframe">
 	{#if revealed}
-		<p transition:fade={{ duration: 6000 }} class="textcenter">{title}</p>
+		<p transition:fade={{ duration: 6000 }} class="textcenter font_8">{title}</p>
 	{/if}
 </div>
 <div id="linkframe">
 	{#if revealed}
-		<p transition:fade={{ delay: 6000, duration: 2000 }} class="textcenter">
+		<p transition:fade={{ delay: 6000, duration: 2000 }} class="textcenter font_8">
 			<a href={linkToNft} target="_blank">{linkToNft}</a>
 		</p>
 	{/if}
 </div>
 <div id="collectionframe">
 	{#if revealed}
-		<p transition:fade={{ delay: 8000, duration: 2000 }} class="textcenter">
+		<p transition:fade={{ delay: 8000, duration: 2000 }} class="textcenter font_8">
 			Visit the complete Visiblr collection: <a href={linkToCollection} target="_blank"
 				>{linkToCollection}</a
 			>

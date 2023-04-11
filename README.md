@@ -1,3 +1,4 @@
-# Svelte + TS + Vite
+# reveal 
 
-from the sveltekit app
+work in progress
+
