@@ -165,6 +165,7 @@
 	}
 </script>
 
+<div class="button-container">
 <button class="font_8" on:click={connected ? disconnect : connect}>
 	{connected ? 'Disconnect' : 'Connect Wallet'}
 </button>
@@ -172,6 +173,7 @@
 <button class="font_8" disabled={!connected} on:click={check}> Check If Your Visiblr Portrait is Ready </button>
 
 <button class="font_8" disabled={!(detected && connected)} on:click={reveal}> Reveal Your Visiblr Portrait </button>
+</div>
 
 <div class="transition-container">
 {#key connected}
@@ -205,19 +207,18 @@
 	{/if}
 </div>
 
-<!-- <div id="titleframe">
+<div id="titleframe">
 	{#if revealed}
 		<p transition:fade={{ duration: 6000 }} class="textcenter font_8">{title}</p>
 	{/if}
 </div>
-
 <div id="linkframe">
 	{#if revealed}
 		<p transition:fade={{ delay: 6000, duration: 2000 }} class="textcenter font_8">
 			<a href={linkToNft} target="_blank">{linkToNft}</a>
 		</p>
 	{/if}
-</div>
+</div> 
 
 <div id="collectionframe">
 	{#if revealed}
@@ -227,9 +228,19 @@
 			>
 		</p>
 	{/if}
-</div> -->
+</div> 
 
 <style>
+	@font-face {
+  		font-family: Jost;
+  		src:url("assets/Jost-ExtraLight.ttf");
+	}
+
+	p {
+  		font-family: Jost, Futura, Helvetica, Arial, sans-serif;
+  		font-feature-settings: "ss01" 1;
+	}
+
 	div#imageframe {
 		width: 300px;
 		height: 400px;
@@ -243,12 +254,15 @@
 		height: 400px;
 	}
 
+	.button-container {
+		position: static;
+		margin: 1em auto;
+	}
+
 	.imagecenter {
 		display: block;
-		margin-left: auto;
-		margin-right: auto;
+		margin: auto;
 		width: 50%;
-		position:sticky;
 	}
 
 	.textcenter {
