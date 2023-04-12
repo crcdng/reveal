@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { blur, fade } from 'svelte/transition';
 
 	import { TezosToolkit } from '@taquito/taquito';
 	import { BeaconWallet } from '@taquito/beacon-wallet';
@@ -193,7 +193,7 @@
 
 <div class="imagecenter" id="imageframe">
 	{#if revealed}
-		<img transition:fade={{ duration: 6000 }} id="image" alt="visiblr portrait" src={imageSrc} />
+		<img transition:blur={{ duration: 6000 }} id="image" alt="visiblr portrait" src={imageSrc} />
 	{/if}
 </div>
 <div id="titleframe">
