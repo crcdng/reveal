@@ -233,7 +233,7 @@
 <style>
 	@font-face {
   		font-family: Jost;
-  		src:url("assets/Jost-ExtraLight.ttf");
+  		src:url("assets/Jost-Light.ttf");
 	}
 
 	p {
