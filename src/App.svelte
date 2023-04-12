@@ -179,10 +179,10 @@
 {#key connected}
 {#key revealed}
 {#key detected}
-<p transition:fade={{ duration: 500 }} class="textcenter font_8">
+<p transition:fade={{ duration: 500 }} class="textcenter xlarge font_8">
 	{connected
 		? revealed
-			? "Congratulations! Please don't forget to disconnect your wallet before you leave"
+			? "Congratulations! This is your portrait."
 			: detected
 			? "Your Visiblr portrait is ready! Let's reveal it now. "
 			: "Connected! Now let's check if your Visiblr portrait is ready."
@@ -209,12 +209,12 @@
 
 <div id="titleframe">
 	{#if revealed}
-		<p transition:fade={{ duration: 6000 }} class="textcenter font_8">{title}</p>
+		<p transition:fade={{ duration: 6000 }} class="textcenter large font_8">{title}</p>
 	{/if}
 </div>
 <div id="linkframe">
 	{#if revealed}
-		<p transition:fade={{ delay: 6000, duration: 2000 }} class="textcenter font_8">
+		<p transition:fade={{ delay: 6000, duration: 2000 }} class="textcenter large font_8">
 			<a href={linkToNft} target="_blank">{linkToNft}</a>
 		</p>
 	{/if}
@@ -222,7 +222,7 @@
 
 <div id="collectionframe">
 	{#if revealed}
-		<p transition:fade={{ delay: 8000, duration: 2000 }} class="textcenter font_8">
+		<p transition:fade={{ delay: 8000, duration: 2000 }} class="textcenter large font_8">
 			Visit the complete Visiblr collection: <a href={linkToCollection} target="_blank"
 				>{linkToCollection}</a
 			>
@@ -231,13 +231,25 @@
 </div> 
 
 <style>
+
+	:global(body) {
+		background-color: black;
+	}
+
 	@font-face {
   		font-family: Jost;
   		src:url("assets/Jost-Light.ttf");
 	}
 
-	p {
+	.xlarge {
   		font-family: Jost, Futura, Helvetica, Arial, sans-serif;
+		font-size: x-large;
+  		font-feature-settings: "ss01" 1;
+	}
+	
+	.large {
+  		font-family: Jost, Futura, Helvetica, Arial, sans-serif;
+		font-size: large;
   		font-feature-settings: "ss01" 1;
 	}
 
@@ -255,8 +267,7 @@
 	}
 
 	.button-container {
-		position: static;
-		margin: 1em auto;
+
 	}
 
 	.imagecenter {
