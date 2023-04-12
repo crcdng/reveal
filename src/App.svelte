@@ -173,7 +173,11 @@
 
 <button class="font_8" disabled={!(detected && connected)} on:click={reveal}> Reveal Your Visiblr Portrait </button>
 
-<p>
+<div class="transition-container">
+{#key connected}
+{#key revealed}
+{#key detected}
+<p transition:fade={{ duration: 500 }} class="textcenter font_8">
 	{connected
 		? revealed
 			? "Congratulations! Please don't forget to disconnect your wallet before you leave"
@@ -182,6 +186,10 @@
 			: "Connected! Now let's check if your Visiblr portrait is ready."
 		: 'Please connect your wallet.'}
 </p>
+{/key}
+{/key}
+{/key}
+</div>
 
 <!-- {#await result}
 	<p>  ... </p>
@@ -191,16 +199,18 @@
 	<p style="color: red">{error.message}</p>
 {/await} -->
 
-<div class="imagecenter" id="imageframe">
+<div class="imagecenter transition-container" id="imageframe">
 	{#if revealed}
 		<img transition:blur={{ duration: 6000 }} id="image" alt="visiblr portrait" src={imageSrc} />
 	{/if}
 </div>
-<div id="titleframe">
+
+<!-- <div id="titleframe">
 	{#if revealed}
 		<p transition:fade={{ duration: 6000 }} class="textcenter font_8">{title}</p>
 	{/if}
 </div>
+
 <div id="linkframe">
 	{#if revealed}
 		<p transition:fade={{ delay: 6000, duration: 2000 }} class="textcenter font_8">
@@ -208,6 +218,7 @@
 		</p>
 	{/if}
 </div>
+
 <div id="collectionframe">
 	{#if revealed}
 		<p transition:fade={{ delay: 8000, duration: 2000 }} class="textcenter font_8">
@@ -216,7 +227,7 @@
 			>
 		</p>
 	{/if}
-</div>
+</div> -->
 
 <style>
 	div#imageframe {
@@ -237,9 +248,21 @@
 		margin-left: auto;
 		margin-right: auto;
 		width: 50%;
+		position:sticky;
 	}
 
 	.textcenter {
 		text-align: center;
 	}
-</style>
+
+	.transition-container {
+	  display: grid;
+	  grid-template-rows: 1fr;
+	  grid-template-columns: 1fr;
+	}
+  
+	.transition-container > * {
+	  grid-row: 1;
+	  grid-column: 1;
+	}
+  </style>
