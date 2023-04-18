@@ -233,7 +233,7 @@
 <style>
 
 	:global(body) {
-		background-color: black;
+		background-color: #FAFAFA;
 	}
 
 	@font-face {
@@ -245,12 +245,14 @@
   		font-family: Jost, Futura, Helvetica, Arial, sans-serif;
 		font-size: x-large;
   		font-feature-settings: "ss01" 1;
+		color: black;
 	}
 	
 	.large {
   		font-family: Jost, Futura, Helvetica, Arial, sans-serif;
 		font-size: large;
   		font-feature-settings: "ss01" 1;
+		color: black;
 	}
 
 	div#imageframe {
