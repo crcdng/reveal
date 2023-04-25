@@ -4,7 +4,7 @@
 
 	import { TezosToolkit } from '@taquito/taquito';
 	import { BeaconWallet } from '@taquito/beacon-wallet';
-	const collectionAddress = 'KT1MNbfFFqNqDXXdNJ3aUoiiHWazueLArVWB';
+	const collectionAddress = 'KT1T9R4r9qqzebU7ywt4WJ72kqv3mkJ8sxBj';
 	const ipfsGatewayPrefix = 'https://ipfs.io/ipfs/';
 	const linkToNftPrefix = 'https://objkt.com/asset/';
 	const linkToCollectionPrefix = 'https://objkt.com/collection/';
@@ -22,6 +22,7 @@
 
 	let connected = false;
 	let detected = false;
+	let failed = false;
 	let revealed = false;
 
 	onMount(async () => {
@@ -33,6 +34,7 @@
 		const address = await getWalletAddress(wallet);
 		const result = await checkDoesWalletHaveATokenFromCollection(address, collectionAddress, 1);
 		detected = isTokenPresent(result) && isTokenUnique(result);
+		failed = !detected;
 	}
 
 	async function checkDoesWalletHaveATokenFromCollection(
@@ -130,7 +132,7 @@
 			response['errors'] ||
 			response['token_holder'].length === 0
 		) {
-			console.log('Warning: no token detected');
+			console.log('Result: no token detected');
 			return false;
 		} else {
 			return true;
@@ -139,7 +141,7 @@
 
 	function isTokenUnique(response: any) {
 		if (response['token_holder'].length != 1) {
-			console.log('Warning: multiple tokens detected');
+			console.log('Result: multiple tokens detected');
 			return false;
 		} else {
 			return true;
@@ -179,15 +181,19 @@
 {#key connected}
 {#key revealed}
 {#key detected}
+{#key failed}
 <p transition:fade={{ duration: 500 }} class="textcenter xlarge font_8">
 	{connected
 		? revealed
 			? "Congratulations! This is your portrait."
 			: detected
-			? "Your Visiblr portrait is ready! Let's reveal it now. "
-			: "Connected! Now let's check if your Visiblr portrait is ready."
+				? "Your Visiblr portrait is ready! Let's reveal it now. "
+				: failed 
+					? "We failed to detect your VISIBLR portrait. Try again or contact us on VISIBLR.io."
+					: "Connected! Now let's check if your Visiblr portrait is ready."
 		: 'Please connect your wallet.'}
 </p>
+{/key}
 {/key}
 {/key}
 {/key}
