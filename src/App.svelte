@@ -4,7 +4,7 @@
 
 	import { TezosToolkit } from '@taquito/taquito';
 	import { BeaconWallet } from '@taquito/beacon-wallet';
-	const collectionAddress = 'KT1T9R4r9qqzebU7ywt4WJ72kqv3mkJ8sxBj';
+	const collectionAddress = 'KT1MNbfFFqNqDXXdNJ3aUoiiHWazueLArVWB';
 	const ipfsGatewayPrefix = 'https://ipfs.io/ipfs/';
 	const linkToNftPrefix = 'https://objkt.com/asset/';
 	const linkToCollectionPrefix = 'https://objkt.com/collection/';
