@@ -4,6 +4,9 @@
 
   import { TezosToolkit } from "@taquito/taquito";
   import { BeaconWallet } from "@taquito/beacon-wallet";
+  import { sound } from "svelte-sound";
+  import vibeSound from "./assets/vibe.wav";
+
   const collectionAddress = "KT1MNbfFFqNqDXXdNJ3aUoiiHWazueLArVWB";
   const placeholderId = 12;
   const ipfsGatewayPrefix = "https://ipfs.io/ipfs/";
@@ -208,7 +211,7 @@
     Check if Your Portrait is Ready
   </button>
 
-  <button class="font_8" disabled={!(detected && connected)} on:click={reveal}>
+  <button class="font_8" disabled={!(detected && connected)} on:click={reveal} use:sound={{src: vibeSound, events: ["click"]}}>
     Reveal Your Visiblr Portrait
   </button>
 </div>

@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@taquito/beacon-wallet": "^16.0.0",
-    "@taquito/taquito": "^16.0.0"
+    "@taquito/taquito": "^16.0.0",
+    "svelte-sound": "^0.3.0"
   }
 }
